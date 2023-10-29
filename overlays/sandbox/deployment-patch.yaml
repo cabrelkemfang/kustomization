@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  bgd-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bgd
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app:  bgd
+    spec:
+      containers:
+      - name:  bgd
+        resources:
+          requests:
+            memory: 0.5Gi
+          limits:
+            memory: 0.5Gi
+        env:
+        - name: COLOR
+          value: "blue"
