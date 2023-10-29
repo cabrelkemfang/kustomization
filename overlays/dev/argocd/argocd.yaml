@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgd-dev
+  namespace: argocd
+spec:
+  destination:
+    namespace: bgd-dev
+    server: https://kubernetes.default.svc 
+  project: default 
+  source: 
+    path: overlays/dev
+    repoURL: https://github.com/cabrelkemfang/kustomization
+    targetRevision: main
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
