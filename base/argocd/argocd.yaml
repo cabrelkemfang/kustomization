@@ -11,7 +11,7 @@ spec:
   source: 
     path: overlays/dev
     repoURL: https://github.com/redhat-developer-demos/openshift-gitops-examples
-    targetRevision: dev
+    targetRevision: main
   syncPolicy: 
     automated:
       prune: true
